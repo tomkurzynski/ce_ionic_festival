@@ -1,0 +1,7 @@
+{
+  "name": "createvent-ionic-festival",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

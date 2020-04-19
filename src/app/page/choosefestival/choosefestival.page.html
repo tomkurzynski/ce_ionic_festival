@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>CreatEvent</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form (submit)="submit()">
+    <ion-list>
+      <ion-item>
+        <ion-label>Enter Event ID</ion-label>
+        <ion-input required type="text" id="festival-id" name="festival-id" [(ngModel)]="festivalId"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit" class="ion-no-margin">Submit</ion-button>
+    </div>
+  </form>
+</ion-content>
