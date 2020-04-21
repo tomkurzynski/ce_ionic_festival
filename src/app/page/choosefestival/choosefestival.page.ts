@@ -16,7 +16,7 @@ export class ChoosefestivalPage{
 
   submit() {
     this.cookieService.set('festival-id', this.festivalId);
-    this.router.navigate(['/']);
+    this.router.navigate(['/menu/mainpage']);
   }
 
 }

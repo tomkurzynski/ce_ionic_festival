@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { Router, RouterEvent } from '@angular/router';
+import { Router, RouterEvent, ActivatedRoute } from '@angular/router';
 import { Performers } from 'src/app/common/performers';
 import { PerformerService } from 'src/app/services/performer.service';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -19,36 +19,46 @@ export class MainpagePage implements OnInit {
   constructor(private cookieService: CookieService,
     private router: Router,
     private performerService: PerformerService,
-    private domSanitizer: DomSanitizer) { 
-      this.router.events.subscribe((event: RouterEvent) => {
-        this.selectedPath = event.url;
-      });
-    }
+    private domSanitizer: DomSanitizer,
+    private route: ActivatedRoute) {
+
+    // this.router.events.subscribe((event: RouterEvent) => {
+    //   this.selectedPath = event.url;
+    // });
+
+
+
+  }
 
   private cookieValue = this.cookieService.get('festival-id');
 
   ngOnInit() {
 
-    if (!this.cookieValue) {
-      this.router.navigate(['/menu/choosefestival'])
-    }
-    else {
-      this.performerService.getAllPerformers(this.cookieValue).subscribe(data => {
-        this.performers = data;
-      });
-    }
+    this.route.params.subscribe(val => {
+      // put the code from `ngOnInit` here
 
+      this.cookieValue = this.cookieService.get('festival-id');
+
+      if (!this.cookieValue) {
+        this.router.navigate(['/menu/choosefestival'])
+      }
+      else {
+        this.performerService.getAllPerformers(this.cookieValue).subscribe(data => {
+          this.performers = data;
+        });
+      }
+    });
 
   }
 
   sanitizeIframeSrc(sPhoto) {
     // <!-- <p><img [src]="'data:image/png;base64, '+ festival.logoUrl" alt="Red dot" /> </p> -->
-    
+
     let sanitizedUrl;
     if (sPhoto) {
 
       sanitizedUrl = this.domSanitizer.
-      bypassSecurityTrustResourceUrl("data:image/png;base64, " + sPhoto);
+        bypassSecurityTrustResourceUrl("data:image/png;base64, " + sPhoto);
     }
 
     return sanitizedUrl;
