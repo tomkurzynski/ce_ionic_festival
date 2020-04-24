@@ -11,10 +11,11 @@
   <div class="container">
     <ion-list>
       <ion-item *ngFor="let foodVendor of foodVendors">
-        <ion-label >
-          <ion-icon name="caret-forward-outline"></ion-icon>
-          <a href="" [routerLink]="['/foodVendor/', foodVendor.id]"> {{ foodVendor.foodName }}</a>
-        </ion-label>    
+        <ion-thumbnail slot="start">
+          <img [src]="sanitizeIframeSrc(foodVendor.logoUrl)" alt="Food Vendor Photo" />
+        </ion-thumbnail>
+        <ion-label >{{ foodVendor.foodName }} </ion-label>    
+        <ion-button [routerLink]="['/menu/foodVendor/', foodVendor.id]">View</ion-button>
       </ion-item>
     </ion-list>
   </div>

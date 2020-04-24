@@ -13,6 +13,10 @@ const routes: Routes = [
         loadChildren: () => import('../performers/performers.module').then( m => m.PerformersPageModule)
       },
       {
+        path: 'performer/:id',
+        loadChildren: () => import('../performer-view/performer-view.module').then(m => m.PerformerViewPageModule)
+      },
+      {
         path: 'news',
         loadChildren: () => import('../news/news.module').then( m => m.NewsPageModule)
       },

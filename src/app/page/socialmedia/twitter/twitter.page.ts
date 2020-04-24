@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-twitter',
   templateUrl: './twitter.page.html',
   styleUrls: ['./twitter.page.scss'],
 })
-export class TwitterPage implements OnInit {
+export class TwitterPage implements AfterViewInit  {
 
-  constructor() { }
+  constructor(public navCtrl: NavController) {
 
-  ngOnInit() {
   }
-
+  ngAfterViewInit(): void {
+    // @ts-ignore
+    twttr.widgets.load();
+}
+    
 }

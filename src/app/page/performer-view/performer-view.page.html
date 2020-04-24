@@ -1,9 +1,38 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>performer-view</ion-title>
+    <ion-buttons slot="start">
+      <ion-icon name="chevron-back-outline" routerLink='/menu/performers' size="large"
+        title="Go back"></ion-icon>
+    </ion-buttons>
+    <ion-title> {{ performer.name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <img [src]="sanitizeIframeSrc(performer.photo)" alt="Performer Photo" />
+    <ion-card-header>
+      <ion-card-title>
+        About:
+        
+      </ion-card-title>
+      
+    </ion-card-header>
+    <ion-card-content>
+      <div>{{ performer.description }}</div><br>
+      <div>
+        <h2>Links: </h2>
+        <a href="{{ performer.webUrl }}" target="_blank"><ion-icon class="icon" name="globe-outline" size="large"> </ion-icon></a>
+        <a href="{{ performer.facebook }}" target="_blank"><ion-icon class="icon" name="logo-facebook" size="large"></ion-icon></a>
+        <a href="{{ performer.twitter }}" target="_blank"><ion-icon class="icon" name="logo-twitter" size="large"></ion-icon></a>
+        <a href="{{ performer.youtube }}" target="_blank"><ion-icon class="icon" name="logo-youtube" size="large"></ion-icon></a>
+      </div>
+      <div>
+        <iframe [src]="sanitizeIframeSpotify()" width="100%" height="250" 
+        frameborder="0" allowtransparency="true" allow="encrypted-media" class="iframe"></iframe>
+      </div>
+    </ion-card-content>
+  </ion-card>
 
+  
 </ion-content>

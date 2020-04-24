@@ -11,11 +11,14 @@ import { NewsService } from 'src/app/services/news.service';
 export class NewsPage implements OnInit {
 
   news: News[];
+  private cookieValue = '';
 
   constructor(private cookieService: CookieService,
-              private newsService: NewsService) { }
+              private newsService: NewsService) {
+                this.cookieValue = this.cookieService.get('festival-id');
+               }
 
-  private cookieValue = this.cookieService.get('festival-id');
+  
             
   ngOnInit() {
     this.newsService.getAllNews(this.cookieValue).subscribe(data => {

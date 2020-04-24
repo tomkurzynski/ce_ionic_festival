@@ -3,10 +3,20 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Info</ion-title>
+    <ion-title>About {{ festival.name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <img [src]="sanitizeIframeSrc(festival.logoUrl)" alt="Festival Photo" />
+    <ion-card-header>
+      <ion-card-title>{{ festival.name }}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{ festival.eventDesc }}
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

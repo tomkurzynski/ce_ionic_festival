@@ -30,7 +30,7 @@ export class MenuPage implements OnInit {
       url: '/menu/maps'
     },
     {
-      title: 'Info',
+      title: 'About',
       url: '/menu/about'
     },
     {

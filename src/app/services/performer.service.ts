@@ -14,7 +14,7 @@ export class PerformerService {
 
 
   getAllPerformers(festivalId: string) {
-    return this.httpClient.get<Performers[]>(this.baseUrl + '/festival/' + festivalId);
+    return this.httpClient.get<Performers[]>(this.baseUrl + '/list/' + festivalId);
   }
 
   getPerformerById(id: string) {

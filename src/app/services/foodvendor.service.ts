@@ -12,7 +12,7 @@ export class FoodvendorService {
   constructor(private httpClient: HttpClient) { }
 
   getFoodVendors(festivalId: string) {
-    return this.httpClient.get<Foodvendor[]>(this.baseUrl + '/festival/' + festivalId);
+    return this.httpClient.get<Foodvendor[]>(this.baseUrl + '/list/' + festivalId);
   }
 
   getFoodVendor(id: string) {

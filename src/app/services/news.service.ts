@@ -12,7 +12,7 @@ export class NewsService {
   constructor(private httpClient: HttpClient) { }
   
   getAllNews(festivalId: string) {
-    return this.httpClient.get<News[]>(this.baseUrl + '/festival/' + festivalId);
+    return this.httpClient.get<News[]>(this.baseUrl + '/list/' + festivalId);
   }
 
   getNewsItemById(id: string) {
