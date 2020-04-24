@@ -10,11 +10,13 @@
 <ion-content>
   <div class="container">
     <ion-list>
-      <ion-item *ngFor="let foodVendor of foodVendors">
+      <ion-item *ngFor="let foodVendor of foodVendors | sortBy:'asc' : 'foodName'">
         <ion-thumbnail slot="start">
           <img [src]="sanitizeIframeSrc(foodVendor.logoUrl)" alt="Food Vendor Photo" />
         </ion-thumbnail>
-        <ion-label >{{ foodVendor.foodName }} </ion-label>    
+        <ion-label >
+          {{ foodVendor.foodName }}
+        </ion-label>    
         <ion-button [routerLink]="['/menu/foodVendor/', foodVendor.id]">View</ion-button>
       </ion-item>
     </ion-list>

@@ -25,5 +25,5 @@ export class NewsPage implements OnInit {
       this.news = data;
     });
   }
-
+  
 }

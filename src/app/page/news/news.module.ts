@@ -8,6 +8,8 @@ import { NewsPageRoutingModule } from './news-routing.module';
 
 import { NewsPage } from './news.page';
 import { RouterModule } from '@angular/router';
+import { SortByPipeModule } from 'src/app/pipes/sort-by-pipe.module';
+import { DotdotPipeModule } from 'src/app/pipes/dotdot-pipe.module';
 
 @NgModule({
   imports: [
@@ -15,7 +17,9 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     IonicModule,
     NewsPageRoutingModule,
-    RouterModule
+    RouterModule,
+    SortByPipeModule,
+    DotdotPipeModule
   ],
   declarations: [NewsPage]
 })

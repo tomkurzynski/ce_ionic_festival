@@ -8,7 +8,7 @@ import { PerformersPageRoutingModule } from './performers-routing.module';
 
 import { PerformersPage } from './performers.page';
 import { RouterModule } from '@angular/router';
-import { SortByPipe } from 'src/app/sort-by-pipe';
+import { SortByPipeModule } from 'src/app/pipes/sort-by-pipe.module';
 
 @NgModule({
   imports: [
@@ -16,11 +16,9 @@ import { SortByPipe } from 'src/app/sort-by-pipe';
     FormsModule,
     IonicModule,
     PerformersPageRoutingModule,
-    RouterModule
+    RouterModule,
+    SortByPipeModule
   ],
-  declarations: [PerformersPage, SortByPipe],
-  exports: [
-    SortByPipe
-  ]
+  declarations: [PerformersPage]
 })
 export class PerformersPageModule {}

@@ -8,6 +8,7 @@ import { FoodvendorsPageRoutingModule } from './foodvendors-routing.module';
 
 import { FoodvendorsPage } from './foodvendors.page';
 import { RouterModule } from '@angular/router';
+import { SortByPipeModule } from 'src/app/pipes/sort-by-pipe.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     IonicModule,
     FoodvendorsPageRoutingModule,
-    RouterModule
+    RouterModule,
+    SortByPipeModule
   ],
   declarations: [FoodvendorsPage]
 })
