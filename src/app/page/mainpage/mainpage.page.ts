@@ -4,6 +4,8 @@ import { Router, RouterEvent, ActivatedRoute } from '@angular/router';
 import { Performers } from 'src/app/common/performers';
 import { PerformerService } from 'src/app/services/performer.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Festival } from 'src/app/common/festival';
+import { FestivalService } from 'src/app/services/festival.service';
 
 @Component({
   selector: 'app-mainpage',
@@ -15,28 +17,25 @@ export class MainpagePage implements OnInit {
   performers: Performers[];
   performer: Performers;
   selectedPath = '';
+  festival: Festival;
+  cookieValue = '';
 
   constructor(private cookieService: CookieService,
     private router: Router,
     private performerService: PerformerService,
     private domSanitizer: DomSanitizer,
+    private festivalService: FestivalService,
     private route: ActivatedRoute) {
-
-    // this.router.events.subscribe((event: RouterEvent) => {
-    //   this.selectedPath = event.url;
-    // });
-
-
-
+      this.cookieValue = this.cookieService.get('festival-id');
+      this.festival = new Festival();
   }
 
-  private cookieValue = this.cookieService.get('festival-id');
-
   ngOnInit() {
+    this.festivalService.getFestival(this.cookieValue).subscribe(data => {
+      this.festival = data;
+    });
 
     this.route.params.subscribe(val => {
-      // put the code from `ngOnInit` here
-
       this.cookieValue = this.cookieService.get('festival-id');
 
       if (!this.cookieValue) {
@@ -52,8 +51,6 @@ export class MainpagePage implements OnInit {
   }
 
   sanitizeIframeSrc(sPhoto) {
-    // <!-- <p><img [src]="'data:image/png;base64, '+ festival.logoUrl" alt="Red dot" /> </p> -->
-
     let sanitizedUrl;
     if (sPhoto) {
 

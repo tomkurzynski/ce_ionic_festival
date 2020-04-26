@@ -55,7 +55,6 @@ export class PerformerViewPage implements OnInit {
 
   sanitizeIframeSpotify() {
     if (this.performer.spotify) {
-
       this.iframeSpotifySrc = this.domSanitizer.
       bypassSecurityTrustResourceUrl(this.spotifyUrl + this.performer.spotify.substring(32, this.performer.spotify.length));
     }

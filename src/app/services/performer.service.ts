@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { CookieService } from 'ngx-cookie-service';
 import { Performers } from '../common/performers';
 
 @Injectable({
@@ -12,7 +11,6 @@ export class PerformerService {
 
   constructor(private httpClient: HttpClient) { }
 
-
   getAllPerformers(festivalId: string) {
     return this.httpClient.get<Performers[]>(this.baseUrl + '/list/' + festivalId);
   }
@@ -20,5 +18,4 @@ export class PerformerService {
   getPerformerById(id: string) {
     return this.httpClient.get<Performers>(this.baseUrl + '/' + id);
   }
-
 }

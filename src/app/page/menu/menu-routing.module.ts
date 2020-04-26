@@ -33,10 +33,6 @@ const routes: Routes = [
         loadChildren: () => import('../choosefestival/choosefestival.module').then( m => m.ChoosefestivalPageModule)
       },
       {
-        path: 'maps',
-        loadChildren: () => import('../maps/maps.module').then( m => m.MapsPageModule)
-      },
-      {
         path: 'foodVendor/:id',
         loadChildren: () => import('../foodvendor-view/foodvendor-view.module').then( m => m.FoodvendorViewPageModule)
       },

@@ -8,18 +8,6 @@
 </ion-header>
 
 <ion-content>
-
-  <!-- <div class="container">
-    <ion-list>
-      <ion-item *ngFor="let newsItem of news">
-        <ion-label >
-          <ion-icon name="caret-forward-outline"></ion-icon>
-          <a href="" [routerLink]="['/menu/newsitem/', newsItem.id]"> {{ newsItem.title }}</a>
-        </ion-label>    
-      </ion-item>
-    </ion-list>
-  </div> -->
-  
     <ion-card *ngFor="let newsItem of news | sortBy:'desc' : 'dateCreated'">
       <ion-card-header>
         <ion-card-subtitle>{{ newsItem.dateCreated }}</ion-card-subtitle>

@@ -12,7 +12,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class FoodvendorsPage implements OnInit {
 
   foodVendors: Foodvendor[];
-  // foodVendor: Foodvendor;
 
   constructor(private cookieService: CookieService,
               private foodvendorService: FoodvendorService,

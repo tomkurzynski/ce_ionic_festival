@@ -12,10 +12,21 @@
     <img [src]="sanitizeIframeSrc(festival.logoUrl)" alt="Festival Photo" />
     <ion-card-header>
       <ion-card-title>{{ festival.name }}</ion-card-title>
+      <h6>Starts: {{ festival.dateFrom | date: 'mediumDate'}}</h6>
+      <h6>Ends: {{ festival.dateTo | date: 'mediumDate' }}</h6>
     </ion-card-header>
   
     <ion-card-content>
       {{ festival.eventDesc }}
+      <br>
+      <div class="container">
+        <ion-list>
+          <ion-item *ngFor="let room of rooms | sortBy:'asc' : 'name'">
+            <ion-label>{{ room.name }}</ion-label>
+            <a [href]="sanitizeIframeSrc(room.timetableFile)" download="timetable">Timetable</a>
+          </ion-item>
+        </ion-list>
+      </div>
     </ion-card-content>
   </ion-card>
 

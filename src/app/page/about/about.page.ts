@@ -3,6 +3,7 @@ import { Festival } from 'src/app/common/festival';
 import { FestivalService } from 'src/app/services/festival.service';
 import { CookieService } from 'ngx-cookie-service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Room } from 'src/app/common/room';
 
 @Component({
   selector: 'app-about',
@@ -13,6 +14,8 @@ export class AboutPage implements OnInit {
 
   festival: Festival;
   cookieValue = '';
+  rooms: Room[];
+  fileUrl;
 
   constructor(private festivalService: FestivalService,
               private cookieService: CookieService,
@@ -25,6 +28,9 @@ export class AboutPage implements OnInit {
     this.festivalService.getFestival(this.cookieValue).subscribe(data => {
       this.festival = data;
     });
+    this.festivalService.getRoomByFestivalId(this.cookieValue).subscribe(data => {
+      this.rooms = data;
+    });
   }
 
   sanitizeIframeSrc(sPhoto) {
@@ -33,7 +39,6 @@ export class AboutPage implements OnInit {
       sanitizedUrl = this.domSanitizer.
         bypassSecurityTrustResourceUrl("data:image/png;base64, " + sPhoto);
     }
-
     return sanitizedUrl;
   }
 

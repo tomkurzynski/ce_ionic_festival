@@ -26,10 +26,6 @@ export class MenuPage implements OnInit {
       url: '/menu/foodvendors'
     },
     {
-      title: 'Directions',
-      url: '/menu/maps'
-    },
-    {
       title: 'About',
       url: '/menu/about'
     },

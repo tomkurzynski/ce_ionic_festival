@@ -18,8 +18,6 @@ export class NewsPage implements OnInit {
                 this.cookieValue = this.cookieService.get('festival-id');
                }
 
-  
-            
   ngOnInit() {
     this.newsService.getAllNews(this.cookieValue).subscribe(data => {
       this.news = data;
