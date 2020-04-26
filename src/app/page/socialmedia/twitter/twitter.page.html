@@ -8,6 +8,9 @@
   <app-explore-container name="Tab 1 page"></app-explore-container> -->
 
 
-  <a class="twitter-timeline" href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a>
+  <!-- <a class="twitter-timeline" href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a> -->
+  <!-- <a class="twitter-timeline" [attr.href]='"https://twitter.com/" + festival.twitter + "?ref_src=twsrc%5Etfw"'>Twitter feed</a> -->
+  <a class="twitter-timeline" [attr.href]='sanitizeTwitterUrl(festival.twitter)'>Twitter feed</a>
 
+  
 </ion-content>

@@ -7,14 +7,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="content_main">
-  
+<ion-content>
 
-    <ion-card *ngFor="let performer of performers" [routerLink]="['/menu/performer/', performer.id]" class="card_main">
-      <img [src]="sanitizeIframeSrc(performer.photo)" alt="Performer Photo" class="card_img"/>
-      <ion-card-header>
-        <ion-card-title>{{ performer.name }}</ion-card-title>
-      </ion-card-header>
-    </ion-card>
+  <ion-card *ngFor="let performer of performers" [routerLink]="['/menu/performer/', performer.id]" class="card_main">
+    <img [src]="sanitizeIframeSrc(performer.photo)" alt="Performer Photo" class="card_img" />
+    <ion-card-header>
+      <ion-card-title>{{ performer.name }}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
 
 </ion-content>

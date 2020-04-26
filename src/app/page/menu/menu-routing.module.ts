@@ -37,12 +37,8 @@ const routes: Routes = [
         loadChildren: () => import('../maps/maps.module').then( m => m.MapsPageModule)
       },
       {
-        path: 'foodvendor-view',
+        path: 'foodVendor/:id',
         loadChildren: () => import('../foodvendor-view/foodvendor-view.module').then( m => m.FoodvendorViewPageModule)
-      },
-      {
-        path: 'performer-view',
-        loadChildren: () => import('../performer-view/performer-view.module').then( m => m.PerformerViewPageModule)
       },
       {
         path: 'newsitem/:id',

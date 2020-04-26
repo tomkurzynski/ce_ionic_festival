@@ -1,9 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>foodvendor-view</ion-title>
+    <ion-buttons slot="start">
+      <ion-icon name="chevron-back-outline" routerLink='/menu/foodvendors' size="large"></ion-icon>
+    </ion-buttons>
+    
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <img [src]="sanitizeIframeSrc(foodVendor.logoUrl)" class="logo" alt="Food Vendor Photo" />
+    <ion-card-header>
+      <ion-card-title>{{ foodVendor.foodName }}
+        <a href="{{ foodVendor.facebook }}" target="_blank"><ion-icon class="icon" name="logo-facebook" size="large"></ion-icon></a>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ foodVendor.foodType }}
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

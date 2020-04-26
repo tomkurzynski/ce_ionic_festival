@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Festival } from 'src/app/common/festival';
+import { Subscription } from 'rxjs';
+import { FestivalService } from 'src/app/services/festival.service';
+import { ActivatedRoute } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-maps',
@@ -9,13 +14,26 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class MapsPage implements OnInit {
 
+  cookieValue = '';
+  festival: Festival;
+  sub: Subscription;
   lat: Number;
   lng: Number;
 
   constructor(private geolocation: Geolocation,
+    private cookieService: CookieService,
+    private festivalService: FestivalService,
+    private route: ActivatedRoute,
     private domSanitizer: DomSanitizer) { }
 
   ngOnInit() {
+    this.sub =  this.route.params.subscribe(params => {
+      this.festival = new Festival();
+      this.festivalService.getFestival(this.cookieValue).subscribe(data => {
+        this.festival = data;
+      });
+    });
+   
   }
 
   getCurrentPosition() {
